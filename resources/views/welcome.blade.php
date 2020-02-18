@@ -86,6 +86,27 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
+            
+            <div>
+            	<form action="{{ url('/contato') }}" method="post">
+            		{{ csrf_field() }}
+            		teste com rotas
+            		<input type="text" name="nome" placeholder="nome post"  />
+            		<input type="submit" value="enviar" />
+            	</form>
+            	
+            	<form action="{{ url('/contato') }}" method="post">
+            		{{ csrf_field() }}
+            		teste com rotas put
+            		<input type="hidden" name="_method" value="put">
+            		<input type="text" name="nome" placeholder="nome put" />
+            		<input type="submit" value="enviar" />
+            	</form>
+            	
+            	
+            </div>
+            
+            
         </div>
     </body>
 </html>
