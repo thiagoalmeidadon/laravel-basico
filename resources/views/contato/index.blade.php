@@ -11,4 +11,8 @@
 		{{ $contato->nome  .  $contato->email }} <br />
 	@endforeach
 
+		<!-- exibir o nome vindo do Model método listar  -->
+		{{ $rec }} <br />
+
+
 @endsection
