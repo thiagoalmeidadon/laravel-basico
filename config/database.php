@@ -64,6 +64,7 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'version' => 8,
         ],
 
         'pgsql' => [
