@@ -14,11 +14,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// a opcao ? junto com id impede que seja obrigatório ter uma id no caminho
-// passando um array para encaminhar ao controller método index
+// a opcao ? junto com id impede que seja obrigatï¿½rio ter uma id no caminho
+// passando um array para encaminhar ao controller mï¿½todo index
 Route::get('/contato/{id?}', ['uses' => 'ContatoController@index']);
 
 Route::post('/contato', ['uses' => 'ContatoController@criar']);
 
 Route::put('/contato', ['uses' => 'ContatoController@editar']);
 
+// usando alias para admin/cursos
+Route::get('/admin/cursos',['as'=>'admin.cursos','uses'=>'Admin\CursoController@index']);
+Route::get('/admin/cursos/adicionar',['as'=>'admin.cursos.adicionar','uses'=>'Admin\CursoController@adicionar']);
+Route::post('/admin/cursos/salvar',['as'=>'admin.cursos.salvar','uses'=>'Admin\CursoController@salvar']);
+// mÃ©todo editar precisa do ID
+Route::get('/admin/cursos/editar/{id}',['as'=>'admin.cursos.editar','uses'=>'Admin\CursoController@editar']);
+// mÃ©todo atualizar precisa do ID
+Route::put('/admin/cursos/atualizar/{id}',['as'=>'admin.cursos.atualizar','uses'=>'Admin\CursoController@atualizar']);
+// mÃ©todo deletar precisa do ID
+Route::get('/admin/cursos/deletar/{id}',['as'=>'admin.cursos.deletar','uses'=>'Admin\CursoController@deletar']);
