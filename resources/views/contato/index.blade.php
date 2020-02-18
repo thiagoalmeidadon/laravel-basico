@@ -1,5 +1,14 @@
-<h3> Index php </h3>
+@extends('layout.site')
 
-@foreach($contatos as $contato)
-	{{ $contato->nome  .  $contato->email }} <br />
-@endforeach
+@section('titulo','Contatos')
+
+
+@section('conteudo')
+
+	<h3> Index php </h3>
+
+	@foreach($contatos as $contato)
+		{{ $contato->nome  .  $contato->email }} <br />
+	@endforeach
+
+@endsection
