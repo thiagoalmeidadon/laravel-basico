@@ -15,19 +15,10 @@ Route::get('/', function () {
 });
 
 // a opcao ? junto com id impede que seja obrigatório ter uma id no caminho
-Route::get('/contato/{id?}', function ($id = null) {
-    return "contatos ";
-});
+// passando um array para encaminhar ao controller método index
+Route::get('/contato/{id?}', ['uses' => 'ContatoController@index']);
 
-Route::post('/contato', function () {
-    // o dd serve para visualizar os dados de um objeto
-    dd($_POST);
-    return "contato pelo POST";
-});
+Route::post('/contato', ['uses' => 'ContatoController@criar']);
 
-Route::put('/contato', function () {
-    // método put   , atualizar dados 
-    // dd($_POST);
-    return "contato pelo PUT";
-});
+Route::put('/contato', ['uses' => 'ContatoController@editar']);
 
