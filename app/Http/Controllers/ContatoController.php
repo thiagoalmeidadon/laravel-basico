@@ -9,7 +9,13 @@ class ContatoController extends Controller
     
     public function index()
     {
-        return "Index método GET";
+        $contatos = [
+            (object)['nome'=>'Joao', 'email'=>'joao@email.com'],
+            (object)['nome'=>'maria', 'email'=>'maria@email.com']
+        ];
+        
+        // método compact()  permite acesso da view aos dados
+        return view('contato.index', compact('contatos'));
     }
     
     // trazendo os dados do formulario
