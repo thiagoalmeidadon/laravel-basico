@@ -17,7 +17,7 @@
                </div>
                <div class="card-content">
                  <h4> {{ $curso->titulo }} </h4>
-                 <p>{{ $curso->descricao }}</p>
+                 <p> {{ $curso->descricao }} </p>
                </div>
                <div class="card-action">
                  <a href="#">{{ "R$". number_format($curso->valor, 2, ',', '') }}</a>
