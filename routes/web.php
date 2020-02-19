@@ -10,9 +10,7 @@
  * | to using a Closure or controller method. Build something great!
  * |
  */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',['as'=>'site.home','uses'=>'Site\HomeController@index']);
 
 // a opcao ? junto com id impede que seja obrigat�rio ter uma id no caminho
 // passando um array para encaminhar ao controller m�todo index
