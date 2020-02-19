@@ -26,7 +26,7 @@
                     <td> {{ $registro->id }} </td>
                     <td> {{ $registro->titulo }} </td>
                     <td> {{ $registro->descricao }} </td>
-                    <td> {{ $registro->valor }} </td>
+                    <td> {{ "R$".number_format($registro->valor, 2, ',', '.') }} </td>
                     <td> <img width="120" src="{{ asset($registro->imagem) }}" alt="{{ $registro->titulo }}" />  </td>
                     <td> {{ $registro->publicado }} </td>
                     <td>

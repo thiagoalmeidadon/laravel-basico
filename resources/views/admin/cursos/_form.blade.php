@@ -26,7 +26,7 @@
 <!-- Verifica se existe a imagem  -->
 @if(isset($registro->imagem))
 <div class="input-field">
-    <img src="{{asset($registro-imagem)}}" width="150">
+    <img src="{{ asset($registro->imagem) }}" width="150">
 </div>
 @endif
 

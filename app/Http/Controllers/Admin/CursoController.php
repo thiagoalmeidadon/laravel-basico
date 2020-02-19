@@ -63,4 +63,52 @@ class CursoController extends Controller
     }
 
 
+    public function editar($id)
+    {
+        // find vai buscar o registro pelo id
+        $registro = Curso::find($id);
+        return view('admin.cursos.editar', compact('registro'));
+    }
+
+
+    public function atualizar(Request $req, $id)
+    {
+        $dados = $req->all();
+
+        if(isset($dados['publicado']))
+        {
+            $dados['publicado'] = 'sim';
+        }else {
+            $dados['publicado'] = 'nao';
+        }
+
+
+        // tratamento de imagem
+        if($req->hasFile('imagem'))
+        {
+            // traz o arquivo e atribui
+            $imagem = $req->file('imagem');
+            //renomear o arquivo com numero randomico
+            $num = rand(1111,9999);
+            // configurar o diretorio para salvar
+            $dir = "img/cursos/";
+            // extensao do arquivo  guessClientExtension() traz a extensao do arquivo
+            $ex = $imagem->guessClientExtension();
+            // criando o nome do arquivo
+            $nomeImagem = "imagem_".$num.".".$ex;
+
+            // mover para o diretorio  1 parametro diretorio 2 parametro o nome do arquivo
+            $imagem->move($dir,$nomeImagem);
+            // atribui o caminho da imagem
+            $dados['imagem'] = $dir."/".$nomeImagem;
+        }
+
+
+        // atualizar os dados pela id fornecida
+        Curso::find($id)->update($dados);
+
+        // redireciona o usuario para a pagina de cursos
+        return redirect()->route('admin.cursos');
+    }
+
 }
