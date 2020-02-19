@@ -20,14 +20,40 @@
           <a href="#!" class="brand-logo">Cursos</a>
           <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
+
             <li><a href="/">HOME</a></li>
-            <li><a href="{{ route('admin.cursos') }}">CURSOS</a></li>
+
+
+            <!-- Verificar se o usuario está logado
+            o método guest retorna true quando o usuario NÃO estiver logado no sistema -->
+            @if(Auth::guest())
+                <li><a href="{{ route('site.login') }}">Login</a></li>
+            @else
+                <!-- Exibir o nome do usuario -->
+                <li><a href="#">{{ Auth::user()->email }}</a></li>
+                <li><a href="{{ route('admin.cursos') }}">Cursos</a></li>
+                <li><a href="{{ route('site.login.sair') }}">Sair</a></li>
+            @endif
+
+
+
           </ul>
         </div>
       </nav>
 
       <ul class="sidenav" id="mobile">
           <li><a href="/">HOME</a></li>
-          <li><a href="{{ route('admin.cursos') }}">CURSOS</a></li>
+
+          <!-- Verificar se o usuario está logado
+          o método guest retorna true quando o usuario NÃO estiver logado no sistema -->
+          @if(Auth::guest())
+              <li><a href="{{ route('site.login') }}">Login</a></li>
+          @else
+              <!-- Exibir o nome do usuario -->
+              <li><a href="#">{{ Auth::user()->email }}</a></li>
+              <li><a href="{{ route('admin.cursos') }}">Cursos</a></li>
+              <li><a href="{{ route('site.login.sair') }}">Sair</a></li>
+          @endif
+
       </ul>
    </header>
