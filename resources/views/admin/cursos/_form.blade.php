@@ -33,7 +33,9 @@
 <div class="input-field">
     <p>
       <label>
-        <input type="checkbox" {{ isset($registro->publicado) && $registro->publicado == 'sim' ? 'checked' : ''  }} />
+        <input type="checkbox" name="publicado" value="true"
+        {{ isset($registro->publicado) && ($registro->publicado == 'sim') ? 'checked' : '' }}
+        />
         <span>Publicar?</span>
       </label>
     </p>
