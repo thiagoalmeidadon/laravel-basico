@@ -10,7 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $cursos = Curso::all();
+        // adiciona paginação no laravel paginate(numero de itens por pagina)
+        // é necessário adicionar os itens de paginação na view 
+        $cursos = Curso::paginate(3);
         return view('home', compact('cursos'));
     }
 }

@@ -5,7 +5,7 @@
 
 @section('conteudo')
 <div class="container">
-    <h3 class="center">Lista de cursos</h3>
+    <h3 class="">Lista de cursos</h3>
 
     @foreach($cursos as $curso)
         <div class="row">
@@ -27,5 +27,11 @@
          </div>
      @endforeach
 
-</div>
+     </div>
+     <div class="row" align="center">
+         <!--  Exibindo os links de paginacao -->
+         {{ $cursos->links() }}
+     </div>
+
+
 @endsection
