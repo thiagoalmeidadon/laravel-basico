@@ -5,14 +5,14 @@
 
 @section('conteudo')
 <div class="container">
-    <h3 class="">Lista de cursos</h3>
-
+    <h3 class="center">Lista de cursos</h3>
+    <div class="row">
     @foreach($cursos as $curso)
-        <div class="row">
-           <div class="col s12 m4">
+
+           <div class="col s12 m3">
              <div class="card">
                <div class="card-image">
-                 <img src="{{ asset($curso->imagem) }}">
+                 <img src="{{ asset($curso->imagem) }}" />
 
                </div>
                <div class="card-content">
@@ -24,14 +24,15 @@
                </div>
              </div>
            </div>
-         </div>
-     @endforeach
 
+     @endforeach
      </div>
+
      <div class="row" align="center">
          <!--  Exibindo os links de paginacao -->
          {{ $cursos->links() }}
      </div>
+</div>
 
 
 @endsection
